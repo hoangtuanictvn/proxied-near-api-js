@@ -1,5 +1,5 @@
 {
-  "name": "@near-js/cookbook",
+  "name": "@ngstear-js/cookbook",
   "private": true,
   "version": "1.0.1",
   "description": "",
@@ -9,6 +9,6 @@
   "dependencies": {
     "chalk": "^4.1.1",
     "homedir": "^0.6.0",
-    "near-api-js": "workspace:*"
+    "proxied-near-api-js": "workspace:*"
   }
 }
