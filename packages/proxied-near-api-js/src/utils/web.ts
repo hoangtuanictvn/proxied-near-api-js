@@ -15,6 +15,7 @@ export interface ConnectionInfo {
     allowInsecure?: boolean;
     timeout?: number;
     headers?: { [key: string]: string | number };
+    proxy?: string;
 }
 
 export async function fetchJson(connectionInfoOrUrl: string | ConnectionInfo, json?: string): Promise<any> {

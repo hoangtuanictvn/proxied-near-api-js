@@ -1,21 +1,13 @@
 import fetch from 'node-fetch';
-import http from 'http';
-import https from 'https';
-
-const httpAgent = new http.Agent({ keepAlive: true });
-const httpsAgent = new https.Agent({ keepAlive: true });
-
-function agent(_parsedURL) {
-    if (_parsedURL.protocol === 'http:') {
-        return httpAgent;
-    } else {
-        return httpsAgent;
-    }
-}
+import { default as ProxyAgent } from 'proxy-agent';
 
 export default function (resource, init) {
+    const opts : any = {};
+    if (process.env.PRIVATE_PROXY) {
+        opts.agent = new ProxyAgent(process.env.PRIVATE_PROXY);
+    }
     return fetch(resource, {
-        agent: agent(new URL(resource.toString())),
+        ...opts,
         ...init,
     });
 }
